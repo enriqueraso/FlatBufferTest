@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "FlatBufferTest": {
+      "commandName": "Project",
+      "commandLineArgs--s1": "serialize -o F:\\\\temp-fbs\\\\test.fb -t DetailedException2 -v this_is_a_test",
+      "commandLineArgs--s2": "serialize -o F:\\\\temp-fbs\\\\test.fb -t DetailedException1 -v 1029374",
+      "commandLineArgs--s3": "serialize -o F:\\\\temp-fbs\\\\test.fb -t NONE",
+      "commandLineArgs--d1": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException2 -t DetailedException2",
+      "commandLineArgs--d2": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException1 -t DetailedException1",
+      "commandLineArgs--d3": "deserialize -i F:\\\\temp-fbs\\\\test.fb.NONE -t NONE"
+    }
+  }
+}

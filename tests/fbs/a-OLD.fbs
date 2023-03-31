@@ -1,0 +1,17 @@
+namespace OMTLS.FlatBuffers;
+
+struct DetailedException1
+    {
+    _exceptionValue:ulong;
+    }
+
+table DetailedException2
+    {
+    _exceptionValue:string;
+    }
+
+union OverallLikelyExceptionUnion
+    {
+    DetailedException1,
+    DetailedException2
+    }
