@@ -40,7 +40,7 @@ namespace FlatBufferTest.Commands
             else if (Type == OverallLikelyExceptionUnion.DetailedException1)
             {
                 var detailedException1 = new DetailedException1();
-                detailedException1.__assign(8, buffer);
+                detailedException1.__init(8, buffer);
                 
                 Logger.LogInformation("_exceptionValue = {Value} ({Type})", detailedException1._exceptionValue, Type);
             }
