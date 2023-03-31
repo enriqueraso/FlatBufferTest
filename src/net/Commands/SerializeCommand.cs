@@ -91,7 +91,7 @@ namespace FlatBufferTest.Commands
 
             if (Union)
             {
-                var detailedException3Offset = DetailedException3.CreateDetailedException3(builder, OverallLikelyExceptionUnion.DetailedException2, detailedException1Offset.Value);
+                var detailedException3Offset = DetailedException3.CreateDetailedException3(builder, OverallLikelyExceptionUnion.DetailedException1, detailedException1Offset.Value);
                 builder.Finish(detailedException3Offset.Value);
             }
             else
