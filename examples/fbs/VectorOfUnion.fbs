@@ -1,0 +1,26 @@
+include "UnionOfStructAndTable.fbs";
+
+namespace OMTLS.FlatBuffers;
+
+table DetailedException3Vector
+    {
+    A:[OverallLikelyExceptionUnion];
+    }    
+
+table DetailedException4
+    {
+    _code:ulong;
+    _message:string;
+    }
+
+union OverallLikelyException4Union
+    {
+    DetailedException2,
+    DetailedException4
+    }
+
+table DetailedException4Vector
+    {
+    A:[OverallLikelyException4Union];
+    B:[DetailedException4];
+    }
