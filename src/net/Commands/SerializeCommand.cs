@@ -42,7 +42,7 @@ namespace FlatBufferTest.Commands
                 bytes = GetNone();
             }
 
-            var fileName = $"{OutputFile}.{Type}{(Union ? "" : ".simple")}";
+            var fileName = $"{OutputFile}.{Type}{(Union ? ".union" : ".simple")}";
             EnsurePathExists(fileName);
 
             await File.WriteAllBytesAsync(fileName, bytes);
