@@ -14,5 +14,4 @@ gen-fbs.ps1 {location_of_fbs_schema} [-NewVersion|-FixVersion] [-native|-net|-py
 `FixVersion` will use flatc_1.15.1.exe
 By default, it uses flatc_1.11.1.exe
 
-`python2` will use `--gen-onefile` argument that generates code without creating folder structure, but it is still creating a file for each type defined in a fbs schema.
-This argument is supposed to work only for generation of C# code, and it creates one file per fbs schema. 
+`python2` will use `--gen-onefile` argument that generates code without creating folder structure. Only in version 23.3.3 creates a file for each type defined in a fbs schema.
