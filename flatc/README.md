@@ -10,8 +10,8 @@ gen-fbs.ps1 is a PowerShell script that generates code from an input fbs schema.
 gen-fbs.ps1 {location_of_fbs_schema} [-NewVersion|-FixVersion] [-native|-net|-python|-python2]
 ```
 
-`NewVersion` will use flatc_23.3.3.exe
-`FixVersion` will use flatc_1.15.1.exe
-By default, it uses flatc_1.11.1.exe
+`NewVersion` will use flatc-23.3.3.exe
+`FixVersion` will use flatc-1.15.1.exe
+By default, it uses flatc-1.11.1.exe
 
-`python2` will use `--gen-onefile` argument that generates code without creating folder structure. Only in version 23.3.3 creates a file for each type defined in a fbs schema.
+`python2` will use `--gen-onefile` argument that generates code without creating folder structure. Only flatc-23.3.3.exe creates a file for each type defined in a fbs schema.
