@@ -3,7 +3,7 @@
 namespace FlatBufferTest.Commands
 {
     [Command(Name = "Test"), Subcommand(typeof(SerializeCommand)), Subcommand(typeof(DeserializeCommand)),
-        Subcommand(typeof(SerializeVectorOfUnionCommand))]
+        Subcommand(typeof(SerializeVectorOfUnionCommand)), Subcommand(typeof(DeserializeVectorOfUnionCommand))]
     internal class TestCommand
     {
         public TestCommand(CommandLineApplication app)

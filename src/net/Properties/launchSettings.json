@@ -7,12 +7,15 @@
       "commandLineArgs--s3": "serialize -o F:\\\\temp-fbs\\\\test.fb -t NONE --union",
       "commandLineArgs--s4": "serialize -o F:\\\\temp-fbs\\\\test.fb -t DetailedException2 -v this_is_a_test",
       "commandLineArgs--s5": "serialize -o F:\\\\temp-fbs\\\\test.fb -t DetailedException1 -v 1029374",
-      "commandLineArgs": "serializeVectorOfUnion -o F:\\\\temp-fbs\\\\test.fb -v message1 -v message2",
-      "commandLineArgs--d1": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException2 --union",
-      "commandLineArgs--d2": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException1 --union",
-      "commandLineArgs--d3": "deserialize -i F:\\\\temp-fbs\\\\test.fb.NONE --union",
+      "commandLineArgs--s6": "serializeVectorOfUnion -o F:\\\\temp-fbs\\\\test.fb -v message1 -v message2 -t DetailedException3Vector",
+      "commandLineArgs--s7": "serializeVectorOfUnion -o F:\\\\temp-fbs\\\\test.fb -v message1 -v message2 -t DetailedException4Vector",
+      "commandLineArgs--d1": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException2.union --union",
+      "commandLineArgs--d2": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException1.union --union",
+      "commandLineArgs--d3": "deserialize -i F:\\\\temp-fbs\\\\test.fb.NONE.union --union",
       "commandLineArgs--d4": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException2.simple -t DetailedException2",
-      "commandLineArgs--d5": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException1.simple -t DetailedException1"
+      "commandLineArgs--d5": "deserialize -i F:\\\\temp-fbs\\\\test.fb.DetailedException1.simple -t DetailedException1",
+      "commandLineArgs": "deserializeVectorOfUnion -i F:\\\\temp-fbs\\\\test.fb.{type}.vectorofunion -t DetailedException3Vector",
+      "commandLineArgs--d7": "deserializeVectorOfUnion -i F:\\\\temp-fbs\\\\test.fb.{type}.vectorofunion -t DetailedException4Vector"
     }
   }
 }
