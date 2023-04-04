@@ -2,7 +2,8 @@
 {
     public enum VectorOfUnionEnum
     {
-        DetailedException3Vector,
+        DetailedException3VectorOfOneType,
+        DetailedException3VectorOfMultipleTypes,
         DetailedException4Vector
     }
 }
