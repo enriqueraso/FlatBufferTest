@@ -6,6 +6,8 @@ param([Parameter(Mandatory)]
 	 ,[Parameter()]
 	 [switch]$NewVersion
 	 ,[Parameter()]
+	 [switch]$NewVersionWithFix
+	 ,[Parameter()]
 	 [switch]$FixVersion
 	 ,[Parameter(ParameterSetName='native', Mandatory)]
 	 [switch]$Native
@@ -21,6 +23,11 @@ if ($NewVersion)
 {
 	$flatc = ".\flatc-23.3.3.exe"
 	$outputDir = "$outputDir\generated_NewVersion"
+}
+if ($NewVersionWithFix)
+{
+	$flatc = ".\flatc-23.3.3-fix.exe"
+	$outputDir = "$outputDir\generated_NewVersionWithFix"
 }
 elseif ($FixVersion)
 {
