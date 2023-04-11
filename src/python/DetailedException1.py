@@ -3,18 +3,24 @@
 # namespace: FlatBuffers
 
 import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
 
 class DetailedException1(object):
     __slots__ = ['_tab']
+
+    @classmethod
+    def SizeOf(cls):
+        return 8
 
     # DetailedException1
     def Init(self, buf, pos):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # DetailedException1
-    def _exceptionValue(self): return self._tab.Get(flatbuffers.number_types.Uint64Flags, self._tab.Pos + flatbuffers.number_types.UOffsetTFlags.py_type(0))
+    def _ExceptionValue(self): return self._tab.Get(flatbuffers.number_types.Uint64Flags, self._tab.Pos + flatbuffers.number_types.UOffsetTFlags.py_type(0))
 
-def CreateDetailedException1(builder, ExceptionValue):
+def CreateDetailedException1(builder, _ExceptionValue):
     builder.Prep(8, 8)
-    builder.PrependUint64(ExceptionValue)
+    builder.PrependUint64(_ExceptionValue)
     return builder.Offset()

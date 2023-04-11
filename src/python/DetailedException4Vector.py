@@ -3,17 +3,23 @@
 # namespace: FlatBuffers
 
 import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
 
 class DetailedException4Vector(object):
     __slots__ = ['_tab']
 
     @classmethod
-    def GetRootAsDetailedException4Vector(cls, buf, offset):
+    def GetRootAs(cls, buf, offset=0):
         n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
         x = DetailedException4Vector()
         x.Init(buf, n + offset)
         return x
 
+    @classmethod
+    def GetRootAsDetailedException4Vector(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
     # DetailedException4Vector
     def Init(self, buf, pos):
         self._tab = flatbuffers.table.Table(buf, pos)
@@ -41,11 +47,16 @@ class DetailedException4Vector(object):
         return 0
 
     # DetailedException4Vector
+    def ATypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
+    # DetailedException4Vector
     def A(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Union(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Union(OverallLikelyException4Union(), a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # DetailedException4Vector
@@ -56,13 +67,17 @@ class DetailedException4Vector(object):
         return 0
 
     # DetailedException4Vector
+    def AIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # DetailedException4Vector
     def B(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
             x = self._tab.Indirect(x)
-            from .DetailedException4 import DetailedException4
             obj = DetailedException4()
             obj.Init(self._tab.Bytes, x)
             return obj
@@ -75,11 +90,32 @@ class DetailedException4Vector(object):
             return self._tab.VectorLen(o)
         return 0
 
+    # DetailedException4Vector
+    def BIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
 def DetailedException4VectorStart(builder): builder.StartObject(3)
-def DetailedException4VectorAddAType(builder, AType): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(AType), 0)
+def Start(builder):
+    return DetailedException4VectorStart(builder)
+def DetailedException4VectorAddAType(builder, aType): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(aType), 0)
+def AddAType(builder, aType):
+    return DetailedException4VectorAddAType(builder, aType)
 def DetailedException4VectorStartATypeVector(builder, numElems): return builder.StartVector(1, numElems, 1)
-def DetailedException4VectorAddA(builder, A): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(A), 0)
+def StartATypeVector(builder, numElems):
+    return DetailedException4VectorStartATypeVector(builder, numElems)
+def DetailedException4VectorAddA(builder, a): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(a), 0)
+def AddA(builder, a):
+    return DetailedException4VectorAddA(builder, a)
 def DetailedException4VectorStartAVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def DetailedException4VectorAddB(builder, B): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(B), 0)
+def StartAVector(builder, numElems):
+    return DetailedException4VectorStartAVector(builder, numElems)
+def DetailedException4VectorAddB(builder, b): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(b), 0)
+def AddB(builder, b):
+    return DetailedException4VectorAddB(builder, b)
 def DetailedException4VectorStartBVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartBVector(builder, numElems):
+    return DetailedException4VectorStartBVector(builder, numElems)
 def DetailedException4VectorEnd(builder): return builder.EndObject()
+def End(builder):
+    return DetailedException4VectorEnd(builder)

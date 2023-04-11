@@ -3,36 +3,50 @@
 # namespace: FlatBuffers
 
 import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
 
 class DetailedException4(object):
     __slots__ = ['_tab']
 
     @classmethod
-    def GetRootAsDetailedException4(cls, buf, offset):
+    def GetRootAs(cls, buf, offset=0):
         n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
         x = DetailedException4()
         x.Init(buf, n + offset)
         return x
 
+    @classmethod
+    def GetRootAsDetailedException4(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
     # DetailedException4
     def Init(self, buf, pos):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # DetailedException4
-    def _code(self):
+    def _Code(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint64Flags, o + self._tab.Pos)
         return 0
 
     # DetailedException4
-    def _message(self):
+    def _Message(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
 def DetailedException4Start(builder): builder.StartObject(2)
-def DetailedException4Add_code(builder, Code): builder.PrependUint64Slot(0, Code, 0)
-def DetailedException4Add_message(builder, Message): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(Message), 0)
+def Start(builder):
+    return DetailedException4Start(builder)
+def DetailedException4Add_Code(builder, _Code): builder.PrependUint64Slot(0, _Code, 0)
+def Add_Code(builder, _Code):
+    return DetailedException4Add_Code(builder, _Code)
+def DetailedException4Add_Message(builder, _Message): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(_Message), 0)
+def Add_Message(builder, _Message):
+    return DetailedException4Add_Message(builder, _Message)
 def DetailedException4End(builder): return builder.EndObject()
+def End(builder):
+    return DetailedException4End(builder)

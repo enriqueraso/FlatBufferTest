@@ -17,13 +17,13 @@ def deserializeFbs(fileName):
         a = detailedException3.A()
         detailedException2 = DetailedException2.DetailedException2()
         detailedException2.Init(a.Bytes, a.Pos)
-        print(detailedException2._exceptionValue())
+        print(detailedException2._ExceptionValue())
 
     elif detailedException3.AType() == OverallLikelyExceptionUnion.OverallLikelyExceptionUnion.DetailedException1:
         a = detailedException3.A()
         detailedException1 = DetailedException1.DetailedException1()
         detailedException1.Init(a.Bytes, a.Pos)
-        print(detailedException1._exceptionValue())
+        print(detailedException1._ExceptionValue())
 
     elif detailedException3.AType() == OverallLikelyExceptionUnion.OverallLikelyExceptionUnion.NONE:
         print("No content in enum.")

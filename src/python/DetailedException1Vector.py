@@ -3,17 +3,23 @@
 # namespace: FlatBuffers
 
 import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
 
 class DetailedException1Vector(object):
     __slots__ = ['_tab']
 
     @classmethod
-    def GetRootAsDetailedException1Vector(cls, buf, offset):
+    def GetRootAs(cls, buf, offset=0):
         n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
         x = DetailedException1Vector()
         x.Init(buf, n + offset)
         return x
 
+    @classmethod
+    def GetRootAsDetailedException1Vector(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
     # DetailedException1Vector
     def Init(self, buf, pos):
         self._tab = flatbuffers.table.Table(buf, pos)
@@ -24,7 +30,6 @@ class DetailedException1Vector(object):
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 8
-            from .DetailedException1 import DetailedException1
             obj = DetailedException1()
             obj.Init(self._tab.Bytes, x)
             return obj
@@ -37,7 +42,20 @@ class DetailedException1Vector(object):
             return self._tab.VectorLen(o)
         return 0
 
+    # DetailedException1Vector
+    def AIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
 def DetailedException1VectorStart(builder): builder.StartObject(1)
-def DetailedException1VectorAddA(builder, A): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(A), 0)
+def Start(builder):
+    return DetailedException1VectorStart(builder)
+def DetailedException1VectorAddA(builder, a): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(a), 0)
+def AddA(builder, a):
+    return DetailedException1VectorAddA(builder, a)
 def DetailedException1VectorStartAVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartAVector(builder, numElems):
+    return DetailedException1VectorStartAVector(builder, numElems)
 def DetailedException1VectorEnd(builder): return builder.EndObject()
+def End(builder):
+    return DetailedException1VectorEnd(builder)

@@ -6,4 +6,3 @@ class OverallLikelyException4Union(object):
     NONE = 0
     DetailedException2 = 1
     DetailedException4 = 2
-

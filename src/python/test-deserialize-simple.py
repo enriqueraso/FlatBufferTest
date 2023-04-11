@@ -9,7 +9,7 @@ import DetailedException2
 bytes = open('F:\\temp-fbs\\test.fb.DetailedException2.simple', 'rb').read()
 buffer = bytearray(bytes)
 detailedException2 = DetailedException2.DetailedException2.GetRootAsDetailedException2(buffer, 0)
-value = detailedException2._exceptionValue()
+value = detailedException2._ExceptionValue()
 print(value)
 
 # deserialize a struct
@@ -17,5 +17,5 @@ bytes = open('F:\\temp-fbs\\test.fb.DetailedException1.simple', 'rb').read()
 buffer = bytearray(bytes)
 detailedException1 = DetailedException1.DetailedException1()
 detailedException1.Init(buffer, 8)
-value = detailedException1._exceptionValue()
+value = detailedException1._ExceptionValue()
 print(value)
