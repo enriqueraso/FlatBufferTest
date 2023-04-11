@@ -22,6 +22,7 @@ union OverallLikelyException4Union
 table DetailedException4Vector
     {
     A:[OverallLikelyException4Union];
+    B:[DetailedException4];
     }
 
 table DetailedException1Vector

@@ -147,5 +147,63 @@ public struct DetailedException4Vector : IFlatbufferObject
   }
 };
 
+public struct DetailedException1Vector : IFlatbufferObject
+{
+  private Table __p;
+  public ByteBuffer ByteBuffer { get { return __p.bb; } }
+  public static DetailedException1Vector GetRootAsDetailedException1Vector(ByteBuffer _bb) { return GetRootAsDetailedException1Vector(_bb, new DetailedException1Vector()); }
+  public static DetailedException1Vector GetRootAsDetailedException1Vector(ByteBuffer _bb, DetailedException1Vector obj) { return (obj.__assign(_bb.GetInt(_bb.Position) + _bb.Position, _bb)); }
+  public void __init(int _i, ByteBuffer _bb) { __p.bb_pos = _i; __p.bb = _bb; }
+  public DetailedException1Vector __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
+
+  public DetailedException1? A(int j) { int o = __p.__offset(4); return o != 0 ? (DetailedException1?)(new DetailedException1()).__assign(__p.__vector(o) + j * 8, __p.bb) : null; }
+  public int ALength { get { int o = __p.__offset(4); return o != 0 ? __p.__vector_len(o) : 0; } }
+
+  public static Offset<DetailedException1Vector> CreateDetailedException1Vector(FlatBufferBuilder builder,
+      VectorOffset AOffset = default(VectorOffset)) {
+    builder.StartObject(1);
+    DetailedException1Vector.AddA(builder, AOffset);
+    return DetailedException1Vector.EndDetailedException1Vector(builder);
+  }
+
+  public static void StartDetailedException1Vector(FlatBufferBuilder builder) { builder.StartObject(1); }
+  public static void AddA(FlatBufferBuilder builder, VectorOffset AOffset) { builder.AddOffset(0, AOffset.Value, 0); }
+  public static void StartAVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(8, numElems, 8); }
+  public static Offset<DetailedException1Vector> EndDetailedException1Vector(FlatBufferBuilder builder) {
+    int o = builder.EndObject();
+    return new Offset<DetailedException1Vector>(o);
+  }
+};
+
+public struct DetailedException2Vector : IFlatbufferObject
+{
+  private Table __p;
+  public ByteBuffer ByteBuffer { get { return __p.bb; } }
+  public static DetailedException2Vector GetRootAsDetailedException2Vector(ByteBuffer _bb) { return GetRootAsDetailedException2Vector(_bb, new DetailedException2Vector()); }
+  public static DetailedException2Vector GetRootAsDetailedException2Vector(ByteBuffer _bb, DetailedException2Vector obj) { return (obj.__assign(_bb.GetInt(_bb.Position) + _bb.Position, _bb)); }
+  public void __init(int _i, ByteBuffer _bb) { __p.bb_pos = _i; __p.bb = _bb; }
+  public DetailedException2Vector __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
+
+  public DetailedException2? A(int j) { int o = __p.__offset(4); return o != 0 ? (DetailedException2?)(new DetailedException2()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
+  public int ALength { get { int o = __p.__offset(4); return o != 0 ? __p.__vector_len(o) : 0; } }
+
+  public static Offset<DetailedException2Vector> CreateDetailedException2Vector(FlatBufferBuilder builder,
+      VectorOffset AOffset = default(VectorOffset)) {
+    builder.StartObject(1);
+    DetailedException2Vector.AddA(builder, AOffset);
+    return DetailedException2Vector.EndDetailedException2Vector(builder);
+  }
+
+  public static void StartDetailedException2Vector(FlatBufferBuilder builder) { builder.StartObject(1); }
+  public static void AddA(FlatBufferBuilder builder, VectorOffset AOffset) { builder.AddOffset(0, AOffset.Value, 0); }
+  public static VectorOffset CreateAVector(FlatBufferBuilder builder, Offset<DetailedException2>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
+  public static VectorOffset CreateAVectorBlock(FlatBufferBuilder builder, Offset<DetailedException2>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static void StartAVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
+  public static Offset<DetailedException2Vector> EndDetailedException2Vector(FlatBufferBuilder builder) {
+    int o = builder.EndObject();
+    return new Offset<DetailedException2Vector>(o);
+  }
+};
+
 
 }

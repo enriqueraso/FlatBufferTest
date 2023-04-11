@@ -24,3 +24,13 @@ table DetailedException4Vector
     A:[OverallLikelyException4Union];
     B:[DetailedException4];
     }
+
+table DetailedException1Vector
+    {
+    A:[DetailedException1];
+    }
+
+table DetailedException2Vector
+    {
+    A:[DetailedException2];
+    }

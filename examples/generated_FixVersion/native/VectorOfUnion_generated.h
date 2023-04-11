@@ -15,6 +15,10 @@ struct DetailedException4;
 
 struct DetailedException4Vector;
 
+struct DetailedException1Vector;
+
+struct DetailedException2Vector;
+
 enum class OverallLikelyException4Union : uint8_t {
   NONE = 0,
   DetailedException2 = 1,
@@ -268,6 +272,107 @@ inline flatbuffers::Offset<DetailedException4Vector> CreateDetailedException4Vec
       A_type__,
       A__,
       B__);
+}
+
+struct DetailedException1Vector FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
+    VT_A = 4
+  };
+  const flatbuffers::Vector<const DetailedException1 *> *A() const {
+    return GetPointer<const flatbuffers::Vector<const DetailedException1 *> *>(VT_A);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyOffset(verifier, VT_A) &&
+           verifier.VerifyVector(A()) &&
+           verifier.EndTable();
+  }
+};
+
+struct DetailedException1VectorBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_A(flatbuffers::Offset<flatbuffers::Vector<const DetailedException1 *>> A) {
+    fbb_.AddOffset(DetailedException1Vector::VT_A, A);
+  }
+  explicit DetailedException1VectorBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  DetailedException1VectorBuilder &operator=(const DetailedException1VectorBuilder &);
+  flatbuffers::Offset<DetailedException1Vector> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<DetailedException1Vector>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<DetailedException1Vector> CreateDetailedException1Vector(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::Vector<const DetailedException1 *>> A = 0) {
+  DetailedException1VectorBuilder builder_(_fbb);
+  builder_.add_A(A);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<DetailedException1Vector> CreateDetailedException1VectorDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const std::vector<DetailedException1> *A = nullptr) {
+  auto A__ = A ? _fbb.CreateVectorOfStructs<DetailedException1>(*A) : 0;
+  return OMTLS::FlatBuffers::CreateDetailedException1Vector(
+      _fbb,
+      A__);
+}
+
+struct DetailedException2Vector FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
+    VT_A = 4
+  };
+  const flatbuffers::Vector<flatbuffers::Offset<DetailedException2>> *A() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<DetailedException2>> *>(VT_A);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyOffset(verifier, VT_A) &&
+           verifier.VerifyVector(A()) &&
+           verifier.VerifyVectorOfTables(A()) &&
+           verifier.EndTable();
+  }
+};
+
+struct DetailedException2VectorBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_A(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<DetailedException2>>> A) {
+    fbb_.AddOffset(DetailedException2Vector::VT_A, A);
+  }
+  explicit DetailedException2VectorBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  DetailedException2VectorBuilder &operator=(const DetailedException2VectorBuilder &);
+  flatbuffers::Offset<DetailedException2Vector> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<DetailedException2Vector>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<DetailedException2Vector> CreateDetailedException2Vector(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<DetailedException2>>> A = 0) {
+  DetailedException2VectorBuilder builder_(_fbb);
+  builder_.add_A(A);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<DetailedException2Vector> CreateDetailedException2VectorDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const std::vector<flatbuffers::Offset<DetailedException2>> *A = nullptr) {
+  auto A__ = A ? _fbb.CreateVector<flatbuffers::Offset<DetailedException2>>(*A) : 0;
+  return OMTLS::FlatBuffers::CreateDetailedException2Vector(
+      _fbb,
+      A__);
 }
 
 inline bool VerifyOverallLikelyException4Union(flatbuffers::Verifier &verifier, const void *obj, OverallLikelyException4Union type) {
