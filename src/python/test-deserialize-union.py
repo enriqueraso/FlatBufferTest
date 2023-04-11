@@ -33,7 +33,7 @@ def deserializeFbs(fileName):
 
 
 # deserialize a union with a table
-deserializeFbs('F:\\temp-fbs\\test.fb.DetailedException2')
+deserializeFbs('F:\\temp-fbs\\test.fb.DetailedException2.union')
 
 # deserialize a union with a struct
-deserializeFbs('F:\\temp-fbs\\test.fb.DetailedException1')
+deserializeFbs('F:\\temp-fbs\\test.fb.DetailedException1.union')
