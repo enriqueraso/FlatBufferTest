@@ -3,7 +3,6 @@
 # namespace: FlatBuffers
 
 import flatbuffers
-import DetailedException3
 
 class DetailedException3(object):
     __slots__ = ['_tab']
